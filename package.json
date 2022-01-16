@@ -1,7 +1,16 @@
 {
-  "name": "app-template",
-  "version": "0.1.0",
-  "private": true,
+  "name": "qho-frontend",
+  "version": "0.0.1",
+  "description": "Qho! web-client code",
+  "repository": "https://github.com/FRTNX/qho-frontend",
+  "author": "Busani Ndlovu",
+  "license": "BSD 3",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -25,12 +34,6 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
 
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

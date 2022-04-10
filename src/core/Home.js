@@ -161,22 +161,23 @@ function Home() {
     };
 
     const handleChange = name => event => {
+        const normalizedInput = event.target.value.toLowerCase()
         if (name === 'ndebele') {
-            if (Object.keys(translations).includes(event.target.value)) {
-                const translationDetails = translationData.filter((translation) => (translation.ndebele == event.target.value) &&
-                    (translation.english == translations[event.target.value]));
+            if (Object.keys(translations).includes(normalizedInput)) {
+                const translationDetails = translationData.filter((translation) => (translation.ndebele == normalizedInput) &&
+                    (translation.english == translations[normalizedInput]));
 
                 const translator = translationDetails[0].translatedBy.name;
 
-                const translationSynonyms = translationData.filter((translation) => (translation.ndebele != event.target.value) &&
-                    (translation.english == translations[event.target.value])).map((synonym) => synonym.ndebele);
+                const translationSynonyms = translationData.filter((translation) => (translation.ndebele != normalizedInput) &&
+                    (translation.english == translations[normalizedInput])).map((synonym) => synonym.ndebele);
                 setSynonyms(translationSynonyms)
                 
                 setValues({
                     ...values,
                     translator,
                     [name]: event.target.value,
-                    english: translations[event.target.value]
+                    english: translations[normalizedInput]
                 });
 
             } else {
@@ -239,18 +240,18 @@ function Home() {
                     values.error && (<Typography component="p">{values.error}</Typography>)
                 } <br />
                 <List className={classes.list}>
-                    {synonyms.length > 0 && (
-                        <ListItem>
-                            <ListItemText primary={'Synonyms'} secondary={synonyms.map((synonym) => camelizeFirstChar(synonym)).join(', ')} />
-                        </ListItem>)
-                    }
                 </List>
             </CardContent>
+            {synonyms.length > 0 && (
+                <ListItem>
+                    <ListItemText className={classes.translator} primary={'Synonyms'} secondary={synonyms.map((synonym) => camelizeFirstChar(synonym)).join(', ')} />
+                </ListItem>)
+            }
             {values.translator &&
-                        (<ListItem>
-                            <ListItemText className={classes.translator} primary={'Translated by'} secondary={values.translator} />
-                        </ListItem>)
-                    }
+                (<ListItem>
+                    <ListItemText className={classes.translator} primary={'Translated by'} secondary={values.translator} />
+                </ListItem>)
+            }
             <CardActions>
                 {
                     auth.isAuthenticated()

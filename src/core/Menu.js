@@ -36,46 +36,6 @@ function Menu (props) {
     };
 
     return (
-        // <AppBar position="static">
-        //     <ToolBar>
-        //         <Typography variant="h6" color="inherit">
-        //            Qho!
-        //         </Typography>
-        //         <div>
-        //         <Link to="/">
-        //             <IconButton aria-label="Home" style={isActive(props.history, '/')}>
-        //             <HomeIcon/>
-        //             </IconButton>
-        //         </Link>
-        //         <Link to="/users">
-        //             <Button style={isActive(props.history, '/users')}>translators</Button>
-        //         </Link>
-        //         </div>
-        //         <div style={{ position: 'absolute', right: '10px '}}><span style={{ float: 'right'}}>
-        //         {
-        //             !auth.isAuthenticated() && (<span>
-        //             <Link to="/signup">
-        //                 <Button style={isActive(props.history, '/signup')}>Sign up</Button>
-        //             </Link>
-        //             <Link to="/signin">
-        //                 <Button style={isActive(props.history, '/signin')}>Sign in</Button>
-        //             </Link>
-        //             </span>)
-        //         }
-        //         {
-        //             auth.isAuthenticated() && (<span>
-        //             <Link to={"/user/" + auth.isAuthenticated().user._id}>
-        //                 <Button style={isActive(props.history, '/user/' + auth.isAuthenticated().user._id)}>My Profile</Button>
-        //             </Link>
-        //             <Button color="inherit" onClick={() => {
-        //                 auth.clearJWT(() => props.history.push('/'));
-        //             }}>Sign out</Button>
-        //             </span>)
-        //         }
-        //         </span></div>
-        //     </ToolBar>
-        // </AppBar>
-
         <Header
             brand="Qho!"
             color="dark"
@@ -138,9 +98,7 @@ function Menu (props) {
                         </Button>
                         </ListItem>
                     </span>)
-                }
-                
-                
+                }                
               </List>
             }
           />

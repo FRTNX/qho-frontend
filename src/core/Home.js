@@ -22,7 +22,7 @@ import auth from './../auth/auth-helper'
 
 const useStyles = makeStyles(theme => ({
     card: {
-        maxWidth: 800,
+        maxWidth: 350,
         margin: 'auto',
         textAlign: 'center',
         marginTop: theme.spacing(5),
@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
-        width: 400,
+        width: 300,
         margin: 'auto',
         paddingBottom: theme.spacing(1)
     },
@@ -99,7 +99,7 @@ function Home() {
         const signal = abortController.signal;
 
         list(signal).then((data) => {
-            // data = []
+            // data = [] // WARN: comment out before deploying
 
             if (data.error) {
                 console.log(data.error);

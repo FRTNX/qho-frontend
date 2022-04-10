@@ -55,6 +55,13 @@ const useStyles = makeStyles(theme => ({
         margin: 'auto',
         marginLeft: theme.spacing(21),
         marginRight: theme.spacing(1)
+    },
+    translator: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 300,
+        margin: 'auto',
+        paddingBottom: theme.spacing(1)
     }
 }));
 
@@ -237,13 +244,13 @@ function Home() {
                             <ListItemText primary={'Synonyms'} secondary={synonyms.map((synonym) => camelizeFirstChar(synonym)).join(', ')} />
                         </ListItem>)
                     }
-                    {values.translator &&
-                        (<ListItem>
-                            <ListItemText primary={'Translated by'} secondary={values.translator} />
-                        </ListItem>)
-                    }
                 </List>
             </CardContent>
+            {values.translator &&
+                        (<ListItem>
+                            <ListItemText className={classes.translator} primary={'Translated by'} secondary={values.translator} />
+                        </ListItem>)
+                    }
             <CardActions>
                 {
                     auth.isAuthenticated()
